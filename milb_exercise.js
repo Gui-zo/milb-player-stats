@@ -95,9 +95,9 @@ async function getTeamID(player_url) {
     const $ = cheerio.load(html);
 
     // Get the team name from the player-header--vitals-name span tag
-    const teamName = $(".player-header--vitals-name span").text().trim();
+    const teamName = $(".player-header--vitals-currentTeam-name span").text().trim();
 
-    // Find the img tag with alt='{Team Name}' and grab the src number from the link
+    // Find the img tag with alt='Team' and grab the src number from the link
     const teamLogo = $('img[alt="' + teamName + '"]').attr("src");
     const teamId = teamLogo.split("/").pop().split(".")[0];
 
